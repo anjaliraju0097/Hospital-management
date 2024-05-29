@@ -11,9 +11,8 @@ class User(AbstractUser):
     phone = PhoneNumberField(blank=False,null=False,unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = [ 'role_id', "phone_number"]
-    class Meta:
-        verbose_name = 'user'
-        verbose_name_plural = 'users'
+    def __str__(self):
+        return str(self.email)
 
 
 
