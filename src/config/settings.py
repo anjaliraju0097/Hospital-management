@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import environ
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,7 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 
-environ.Env.read_env(BASE_DIR / '.env')
+# read from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -88,16 +89,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-if env.bool('DATABASE_URL', default=None) is None:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / '../db.sqlite3',
-        }
-    }
-else:
-    # like psql://user:pass@127.0.0.1:8458/db
-    DATABASES = {'default': env.db()}
+
+DATABASES = {'default': env.db()}
 
 AUTH_USER_MODEL = 'users.User'
 

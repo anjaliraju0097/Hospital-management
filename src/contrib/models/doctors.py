@@ -7,6 +7,8 @@ class Doctor(models.Model):
     specialization = models.CharField(max_length=100)
     license_number = models.CharField(max_length=50)
     Phone = PhoneNumberField(null=False, blank=False, unique=True)
+    def __str__(self):
+        return str(self.email)
 
 
 class DoctorSchedule(models.Model):
@@ -14,3 +16,5 @@ class DoctorSchedule(models.Model):
     working_days_of_week = models.CharField(max_length=10)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    def __str__(self):
+        return str(self.id)
