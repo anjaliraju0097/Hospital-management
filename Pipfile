@@ -14,6 +14,8 @@ gunicorn = "*"
 ipython = "*"
 psycopg2 = "*"
 django-phonenumber-field = "*"
+mysqlclient = "*"
+phonenumbers = "*"
 
 [dev-packages]
 yapf = "*"
