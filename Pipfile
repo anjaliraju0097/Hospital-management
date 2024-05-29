@@ -13,6 +13,7 @@ django-extensions = "*"
 gunicorn = "*"
 ipython = "*"
 psycopg2 = "*"
+django-phonenumber-field = "*"
 
 [dev-packages]
 yapf = "*"
