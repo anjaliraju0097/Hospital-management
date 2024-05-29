@@ -46,11 +46,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_filters',
     'django_extensions',
+    'phonenumber_field',
 
     # first party
     'core',
     'users',
     'contrib',
+    'roles',
 ]
 
 MIDDLEWARE = [
