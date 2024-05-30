@@ -1,6 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 class Doctor(models.Model):
     name = models.CharField(max_length=20)
     email = models.EmailField(null=False, blank=False, unique=True)
