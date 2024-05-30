@@ -1,9 +1,7 @@
 from django.db import models
 import django.utils.timezone
 
-from .doctors import Doctor
 from .patients import Patient
-from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Medicine(models.Model):
@@ -16,7 +14,7 @@ class Medicine(models.Model):
 
 
 class MedicineSold(models.Model):
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='medicines_sold')
+    patient = models.ForeignKey('contrib.Patient', on_delete=models.CASCADE, related_name='medicines_sold')
     medicines = models.ManyToManyField(Medicine, blank=True)
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
     def __str__(self):
