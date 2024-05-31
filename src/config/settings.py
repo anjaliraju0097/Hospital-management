@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django_filters',
     'django_extensions',
     'phonenumber_field',
+   
 
     # first party
     'core',

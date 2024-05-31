@@ -16,6 +16,8 @@ psycopg2 = "*"
 django-phonenumber-field = "*"
 mysqlclient = "*"
 phonenumbers = "*"
+factory-boy = "*"
+faker = "*"
 
 [dev-packages]
 yapf = "*"
