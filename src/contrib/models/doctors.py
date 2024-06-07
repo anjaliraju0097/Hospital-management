@@ -2,10 +2,24 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 
+SPECIALIZATION_CHOICES = (
+    ("Cardiologist", "Cardiologist"),
+    ("Orthopedic Surgeon", "Orthopedic Surgeon"),
+    ("Pediatrician", "Pediatrician"),
+    ("Dermatologist", "Dermatologist"),
+    ("Neurologist", "Neurologist"),
+    ("Gynecologist", "Gynecologist"),
+    ("Oncologist", "Oncologist"),
+    ("ENT Specialist", "ENT Specialist"),
+    ("Urologist", "Urologist"),
+    ("Endocrinologist", "Endocrinologist"),
+    ("General", "General"),
+)
+
 class Doctor(models.Model):
     name = models.CharField(max_length=300)
     email = models.EmailField(null=False, blank=False, unique=True)
-    specialization = models.CharField(max_length=300)
+    specialization = models.CharField(max_length=300, choices=SPECIALIZATION_CHOICES, default=None) 
     license_number = models.CharField(max_length=300)
     Phone = PhoneNumberField(null=False, blank=False, unique=True)
     def __str__(self):
