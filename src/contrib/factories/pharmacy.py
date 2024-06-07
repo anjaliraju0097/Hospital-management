@@ -1,4 +1,3 @@
-# from models.doctors import DoctorSchedule, Doctor
 import factory
 import random
 from faker import Faker
@@ -7,6 +6,7 @@ from ..models.pharmacy import Medicine, MedicineSold
 from .patients import PatientFactory
 from django.utils import timezone
 from ..custom_provider import MedicineProvider
+
 
 fake = Faker()
 fake.add_provider(IndianPhoneNumberProvider)
@@ -20,7 +20,6 @@ class MedicineFactory(factory.django.DjangoModelFactory):
     is_prescription_required = factory.Faker('boolean')
     class Meta:
         model = Medicine
-
 
 class MedicineSoldFactory(factory.django.DjangoModelFactory):
     patient = factory.SubFactory(PatientFactory)

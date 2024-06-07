@@ -5,9 +5,13 @@ from faker import Faker
 from roles.custom_providers import IndianPhoneNumberProvider
 from ..models.patients import Patient, PatientDetail, Appointment, MedicalRecord, DoctorPrescribedMedicine
 from .doctors import DoctorFactory
+from datetime import datetime
 
 fake = Faker()
 fake.add_provider(IndianPhoneNumberProvider)
+
+def timestamp():
+    return datetime.now().strftime('%Y%m%d%H%M%S%f')
 
 
 def generate_blood_group():
@@ -24,7 +28,7 @@ fake.add_provider(generate_allergies)
 class PatientFactory(factory.django.DjangoModelFactory):
     name = factory.LazyAttribute(lambda o: fake.name()[:20])
     address = factory.Faker('address')
-    phone = factory.LazyAttribute(lambda o: fake.indian_phone_number())
+    phone = factory.LazyAttribute(lambda o: f"{fake.indian_phone_number()}_{timestamp()}") 
     class Meta:
         model = Patient
 
@@ -61,7 +65,6 @@ class DoctorPrescribedMedicineFactory(factory.django.DjangoModelFactory):
         if extracted:
             for medicine in extracted:
                 self.medicines.add(medicine)
-
     class Meta:
         model = DoctorPrescribedMedicine
 

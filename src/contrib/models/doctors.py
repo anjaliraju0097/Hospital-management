@@ -17,10 +17,10 @@ SPECIALIZATION_CHOICES = (
 )
 
 class Doctor(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=300)
     email = models.EmailField(null=False, blank=False, unique=True)
-    specialization = models.CharField(max_length=100, choices=SPECIALIZATION_CHOICES, default=None) 
-    license_number = models.CharField(max_length=50)
+    specialization = models.CharField(max_length=300, choices=SPECIALIZATION_CHOICES, default=None) 
+    license_number = models.CharField(max_length=300)
     Phone = PhoneNumberField(null=False, blank=False, unique=True)
     def __str__(self):
         return str(self.email)
@@ -28,7 +28,7 @@ class Doctor(models.Model):
 
 class DoctorSchedule(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='schedules')
-    working_days_of_week = models.CharField(max_length=10)
+    working_days_of_week = models.CharField(max_length=300)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     def __str__(self):

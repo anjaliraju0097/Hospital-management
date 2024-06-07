@@ -30,7 +30,7 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
     
 class User(AbstractUser):
-    name = models.CharField(max_length=15)
+    name = models.CharField(max_length=300)
     email = models.EmailField(unique=True, null=True)
     role = models.ForeignKey(Role,related_name='role', on_delete=models.CASCADE,null=True,blank=True)
     phone = PhoneNumberField(blank=False,null=False,unique=True)

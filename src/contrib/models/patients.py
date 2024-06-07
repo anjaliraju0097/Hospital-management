@@ -13,7 +13,6 @@ class Patient(models.Model):
     def __str__(self):
         return str(self.id)
     
-
 class PatientDetail(models.Model):
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE, blank=True, related_name='patient_detail')
     age = models.IntegerField(default=0, blank=True)
@@ -21,7 +20,6 @@ class PatientDetail(models.Model):
     allergies = models.CharField(max_length=100)
     def __str__(self):
         return str(self.id)
-
 
 class Appointment(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_appointment')
@@ -31,14 +29,12 @@ class Appointment(models.Model):
     def __str__(self):
         return str(self.id)
 
-
 class MedicalRecord(models.Model):
     appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name='appointment_records', null=True)
     record_date = models.DateTimeField()
     description = models.TextField()
     def __str__(self):
         return str(self.id)
-
 
 class DoctorPrescribedMedicine(models.Model):
     appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name='prescribed_medicines', null=True)
