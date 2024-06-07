@@ -18,13 +18,14 @@ mysqlclient = "*"
 phonenumbers = "*"
 factory-boy = "*"
 faker = "*"
+django-ninja = "*"
 
 [dev-packages]
 yapf = "*"
 flake8 = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
 
 [scripts]
 superuser = "python ./src/manage.py createsuperuser"
