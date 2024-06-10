@@ -13,7 +13,7 @@ from .serializers import DoctorSerializer
 class DoctorViewSet(viewsets.ModelViewSet):
     serializer_class = DoctorSerializer
 
-    def get_queryset(self):
+    def get_queryset(self): 
         queryset = Doctor.objects.all()
         specialization = self.request.query_params.get('specialization') or None
         if not specialization == None:

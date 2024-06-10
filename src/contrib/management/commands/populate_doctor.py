@@ -16,5 +16,4 @@ class Command(BaseCommand):
         for _ in range(total_doctors):
             doctor = DoctorFactory.create()
             DoctorScheduleFactory.create_batch(total_schedules_per_doctor, doctor=doctor)
-
         self.stdout.write(self.style.SUCCESS('Successfully populated data'))

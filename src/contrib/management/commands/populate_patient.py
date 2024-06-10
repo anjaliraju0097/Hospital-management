@@ -23,5 +23,4 @@ class Command(BaseCommand):
                 appointment = AppointmentFactory.create(patient=patient)
                 MedicalRecordFactory.create(appointment=appointment)
                 DoctorPrescribedMedicineFactory.create(appointment=appointment, medicines=[Medicine.objects.create() for _ in range(total_medicines)])
-
         self.stdout.write(self.style.SUCCESS('Successfully populated data'))
