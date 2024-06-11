@@ -14,7 +14,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
     serializer_class = DoctorSerializer
 
     def get_queryset(self):
-        queryset = Doctor.objects.all()
+        queryset = Doctor.objects.prefetch_related('schedules')
         specialization = self.request.query_params.get('specialization') or None
         if not specialization == None:
             queryset =queryset.filter(specialization=specialization)
