@@ -4,7 +4,6 @@ from ninja import NinjaAPI, Schema
 
 # drf
 from rest_framework import viewsets
-
 from .models.doctors import Doctor
 from .serializers import DoctorSerializer
 

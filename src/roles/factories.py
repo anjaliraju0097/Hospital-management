@@ -15,7 +15,7 @@ class RoleFactory(factory.django.DjangoModelFactory):
     role_name = factory.LazyAttribute(lambda o: f"{fake.job()[:100 - 21]}_{timestamp()}") 
     status = factory.Faker('boolean')
     class Meta:
-        model = Role
+        model = Role 
 
 class UserFactory(factory.django.DjangoModelFactory):
     username = factory.LazyAttribute(lambda o: f"{fake.unique.user_name()}_{timestamp()}") 

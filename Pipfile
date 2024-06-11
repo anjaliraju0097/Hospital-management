@@ -19,6 +19,7 @@ phonenumbers = "*"
 factory-boy = "*"
 faker = "*"
 django-ninja = "*"
+locust = "*"
 
 [dev-packages]
 yapf = "*"
