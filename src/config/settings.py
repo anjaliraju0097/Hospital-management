@@ -125,7 +125,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-USE_SILK = DEBUG
+USE_SILK = False
 
 if USE_SILK:
     MIDDLEWARE += [

@@ -23,6 +23,7 @@ django-silk = "*"
 [dev-packages]
 yapf = "*"
 flake8 = "*"
+locust = "*"
 
 [requires]
 python_version = "3.10"

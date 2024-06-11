@@ -32,7 +32,7 @@ class DoctorScheme(Schema):
     email: str
     specialization: str
     license_number: str
-    schedules: List["DoctorScheduleScheme"]
+    # schedules: List["DoctorScheduleScheme"]
     # Phone: str
 
 
