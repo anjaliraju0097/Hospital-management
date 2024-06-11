@@ -18,6 +18,7 @@ factory-boy = "*"
 faker = "*"
 django-ninja = "*"
 psycopg2-binary = "*"
+django-silk = "*"
 
 [dev-packages]
 yapf = "*"

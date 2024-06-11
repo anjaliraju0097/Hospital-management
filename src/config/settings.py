@@ -4,14 +4,12 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 env = environ.Env()
 
 environ.Env.read_env(BASE_DIR / '.env')
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -39,7 +37,6 @@ INSTALLED_APPS = [
     'django_filters',
     'django_extensions',
     'phonenumber_field',
-   
 
     # first party
     'core',
@@ -80,7 +77,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 
 DATABASES = {'default': env.db()}
 
@@ -128,3 +124,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, MEDIA_URL)
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+USE_SILK = DEBUG
+
+if USE_SILK:
+    MIDDLEWARE += [
+        'silk.middleware.SilkyMiddleware',
+    ]
+
+    INSTALLED_APPS += ['silk']
